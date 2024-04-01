@@ -1,0 +1,48 @@
+{
+  "name": "ytdownload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-builder",
+    "package": "electron-packager . \"YT Download\" --platform=win32 --arch=x64 --out=build/ --overwrite"
+  },
+  "build": {
+    "appId": "me.ytdownload.com",
+    "productName": "Youtube Downloader",
+    "directories": {
+      "output": "installers"
+    },
+    "extraFiles": [
+      {
+        "from": "license.md",
+        "to": "license.md"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "./src/images/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "license": "license.md"
+    }
+  },
+  "author": "Ty Kutcher",
+  "license": "MIT",
+  "dependencies": {
+    "source-map-support": "^0.5.21",
+    "ytdl-core": "^4.11.5"
+  },
+  "devDependencies": {
+    "electron": "^29.1.3",
+    "electron-builder": "^24.13.3",
+    "electron-packager": "^17.1.2"
+  }
+}
